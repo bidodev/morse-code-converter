@@ -1,73 +1,125 @@
 import React, { Component } from 'react';
-import './App.css';
-import TodoList from './components/list/list-component';
-import Data from './components/data/data-component';
 
-class App extends Component {
+export default class App extends Component {
   constructor() {
     super();
-
-    this.textInput = React.createRef();
-
     this.state = {
-      todos: [
-        {
-          id: 1,
-          desc: 'Do something cool to the world..',
-          status: false,
-        },
-        {
-          id: 2,
-          desc: 'Take the Dog out for a walk',
-          status: false,
-        },
-        {
-          id: 3,
-          desc: 'Meeting my friends',
-          status: false,
-        },
-      ],
+      actualWord: '',
+      morseCode: '',
     };
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    const task = this.textInput.current.value;
-    this.textInput.current.value = '';
-
-    const todos = [...this.state.todos, { id: this.state.todos.length + 1, desc: task, status: false }];
-    this.setState({ todos });
+  handleChange = (e) => {
+    const plainText = e.target.value;
+    this.setState({ actualWord: plainText });
+    this.decodeMorse(plainText);
   };
 
-  handleComplete = (id) => {
-    this.setState({
-      todos: this.state.todos.map((todo) => {
-        if (todo.id === id) {
-          todo.status = !todo.status;
-        }
-        return todo;
-      }),
-    });
+  decodeMorse = (value) => {
+    const converter = {
+      a: '.-',
+      b: '-...',
+      c: '-.-.',
+      d: '-..',
+      e: '.',
+      f: '..-.',
+      g: '--.',
+      h: '....',
+      i: '..',
+      j: '.---',
+      k: '-.-',
+      l: '.-..',
+      m: '--',
+      n: '-.',
+      o: '---',
+      p: '.--.',
+      q: '--.-',
+      r: '.-.',
+      s: '...',
+      t: '-',
+      u: '..-',
+      v: '...-',
+      w: '.--',
+      x: '-..-',
+      y: '-.--',
+      z: '--..',
+      '1': '.----',
+      '2': '..---',
+      '3': '...--',
+      '4': '....-',
+      '5': '.....',
+      '6': '-....',
+      '7': '--...',
+      '8': '---..',
+      '9': '----.',
+      '0': '-----',
+      '.': '.-.-.-',
+      ',': '--..--',
+      '?': '..--..',
+      "'": '.----.',
+      '!': '-.-.--',
+      '/': '-..-.',
+      '(': '-.--.',
+      ')': '-.--.-',
+      '&': '.-...',
+      ':': '---...',
+      ';': '-.-.-.',
+      '=': '-...-',
+      '+': '.-.-.',
+      '-': '-....-',
+      _: '..--.-',
+      '"': '.-..-.',
+      $: '...-..-',
+      '@': '.--.-.',
+      ' ': ' ',
+    };
+
+    let output = '';
+
+    for (let i = 0; i < value.length; i++) {
+      output += converter[value.charAt(i).toLowerCase()];
+    }
+
+    return this.setState({ morseCode: output });
   };
 
   render() {
     return (
-      <div className="App">
-        <Data />
-        {/* header adding a new item */}
-        <div className="header-add">
-          <form onSubmit={this.handleSubmit}>
-            <input className="form-control form-control-sm" type="text" ref={this.textInput} />
-            <button className="btn">
-              <i className="fas fa-plus"></i>
-            </button>
-          </form>
+      <div className="container">
+        <div className="row page-header">
+          <div className="col-xs-12">
+            <h1>Morse Code Converter</h1>
+
+            <p className="lead">Live-convert text to morse code. </p>
+          </div>
         </div>
 
-        {/* Pass down the status into the List component */}
-        <TodoList todos={this.state.todos} handleComplete={this.handleComplete} />
+        <form className="form-horizontal">
+          <div className="form-group">
+            <label htmlFor="morse" className="control-label col-xs-1">
+              Plain Text
+            </label>
+
+            <div className="col-xs-11">
+              <input
+                type="text"
+                className="form-control"
+                id="morse"
+                autoComplete="off"
+                onChange={this.handleChange}
+              ></input>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <label className="control-label col-xs-1">Morse</label>
+
+            <div className="col-xs-11">
+              <pre id="text">{this.state.morseCode}</pre>
+            </div>
+          </div>
+        </form>
       </div>
     );
   }
 }
-export default App;

@@ -4,6 +4,11 @@ ul{
   height: 20vh;
   
 }
+.checked{
+  text-decoration: line-through;
+  opacity: 0.5;
+  color: green;
+}
 
 li {
   display: flex;
