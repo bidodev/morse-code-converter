@@ -11,6 +11,7 @@ export default class App extends Component {
   }
 
   handleChange = (e) => {
+    e.preventDefault();
     const plainText = e.target.value;
     this.setState({ actualWord: plainText });
     this.decodeMorse(plainText);
