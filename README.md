@@ -1,10 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-# todo-list
-> This is my first React.js project
+# Code Morse Converter
+#### This App  translate any given text into morse code
 
 ## Preview:
-![preview](https://i.imgur.com/y3jYuv6.png)
+![preview](./doc/img/final.png)
 
 ## Available Scripts
 
