@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import data from './data'
 
 export default class App extends Component {
   constructor() {
@@ -16,71 +17,14 @@ export default class App extends Component {
   };
 
   decodeMorse = (value) => {
-    const converter = {
-      a: '.-',
-      b: '-...',
-      c: '-.-.',
-      d: '-..',
-      e: '.',
-      f: '..-.',
-      g: '--.',
-      h: '....',
-      i: '..',
-      j: '.---',
-      k: '-.-',
-      l: '.-..',
-      m: '--',
-      n: '-.',
-      o: '---',
-      p: '.--.',
-      q: '--.-',
-      r: '.-.',
-      s: '...',
-      t: '-',
-      u: '..-',
-      v: '...-',
-      w: '.--',
-      x: '-..-',
-      y: '-.--',
-      z: '--..',
-      '1': '.----',
-      '2': '..---',
-      '3': '...--',
-      '4': '....-',
-      '5': '.....',
-      '6': '-....',
-      '7': '--...',
-      '8': '---..',
-      '9': '----.',
-      '0': '-----',
-      '.': '.-.-.-',
-      ',': '--..--',
-      '?': '..--..',
-      "'": '.----.',
-      '!': '-.-.--',
-      '/': '-..-.',
-      '(': '-.--.',
-      ')': '-.--.-',
-      '&': '.-...',
-      ':': '---...',
-      ';': '-.-.-.',
-      '=': '-...-',
-      '+': '.-.-.',
-      '-': '-....-',
-      _: '..--.-',
-      '"': '.-..-.',
-      $: '...-..-',
-      '@': '.--.-.',
-      ' ': ' ',
-    };
-
-    let output = '';
+    let morseCode = '';
 
     for (let i = 0; i < value.length; i++) {
-      output += converter[value.charAt(i).toLowerCase()];
+      morseCode += data[value.charAt(i).toLowerCase()];
+      console.log(morseCode)
     }
 
-    return this.setState({ morseCode: output });
+    return this.setState({ morseCode });
   };
 
   render() {
