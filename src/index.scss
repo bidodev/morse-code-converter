@@ -9,7 +9,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #fff;
-}
-.container{
-  margin-top: 5vh;
+  background-image: linear-gradient(rgba(#000, 0.1), rgba(#000, 0.3)),
+  url("./img/background.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
 }

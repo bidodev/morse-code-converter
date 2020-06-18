@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import data from './data';
+import './App.scss'
 
 export default class App extends Component {
   constructor() {
@@ -30,7 +31,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="wrapper">
         <div className="row page-header">
           <div className="col-xs-12">
             <h1>Morse Code Converter</h1>
