@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2863cf997b44fb3832e8739cba212c61",
+    "revision": "2a016bc6ce98eabcc17b1d457d1509c2",
     "url": "/morse-code-converter/index.html"
   },
   {
-    "revision": "9672b3489830fa2d6655",
+    "revision": "816d5635973ee3688f16",
     "url": "/morse-code-converter/static/css/main.5e1e999c.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/morse-code-converter/static/js/2.422db3d1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9672b3489830fa2d6655",
-    "url": "/morse-code-converter/static/js/main.e0494141.chunk.js"
+    "revision": "816d5635973ee3688f16",
+    "url": "/morse-code-converter/static/js/main.a27594c2.chunk.js"
   },
   {
     "revision": "9d7b83ed741317b10208",
