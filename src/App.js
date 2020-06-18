@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import data from './data'
+import data from './data';
 
 export default class App extends Component {
   constructor() {
@@ -21,7 +21,7 @@ export default class App extends Component {
 
     for (let i = 0; i < value.length; i++) {
       morseCode += data[value.charAt(i).toLowerCase()];
-      console.log(morseCode)
+      console.log(morseCode);
     }
 
     return this.setState({ morseCode });
@@ -58,8 +58,8 @@ export default class App extends Component {
           <div className="form-group">
             <label className="control-label col-xs-1">Morse</label>
 
-            <div className="col-xs-11">
-              <pre id="text">{this.state.morseCode}</pre>
+            <div className="form-group shadow-textarea">
+              <textarea id="form16" class="md-textarea form-control" rows="5" cols="40" value={this.state.morseCode} />
             </div>
           </div>
         </form>
